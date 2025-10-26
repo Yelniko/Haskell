@@ -9,5 +9,5 @@ quickSort (x:xs) =
 
 main = do
     print ( quickSort [3,1,4,1,5,9,2] )
-    print ( quickSort [1] )
+    print ( quickSort [1, -3] )
     print ( quickSort [] )

@@ -4,6 +4,8 @@
 mkMultiplier :: Int -> (Int -> Int)
 mkMultiplier k = \x -> k * x
 
+-- Напишіть функцію mkMultiplier, яка приймає число і повертає функцію множення на це число.
+
 main  = do
     number_str <- getLine
     let number = read number_str :: Int

@@ -1,6 +1,6 @@
 
 
 applyTwice a d = a (a d)
-
+ -- Напишіть функцію applyTwice, яка приймає функцію та значення, і застосовує функцію двічі.
 main = do
-    print (applyTwice (+1) 2 )
+    print (applyTwice (^2) a)

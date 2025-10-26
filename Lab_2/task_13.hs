@@ -8,6 +8,7 @@ hanoi n from aux to = do
     ++ hanoi (n - 1) aux from to
 
 
+
 main = do
-    print ( hanoi 2 'A' 'B' 'C' )
-    print ( hanoi 3 'L' 'M' 'R' )
+    print ( hanoi 5 'A' 'B' 'C' )
+    --print ( hanoi 3 'L' 'M' 'R' )
