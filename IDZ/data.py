@@ -28,8 +28,8 @@ def clear(df):
     df = df.dropna(inplace=False)
     return df
 
-def iter_market_data(start:str = "2015-01-01", end:str = "2025-04-13") -> Iterator[PricePoint]:
-    tickers = { "IBM": "IBM", "S&P500":"^GSPC", "Dow30": "^DJI", "Gold": "GC=F", "CrudeOil": "CL=F"}
+def iter_market_data(tickers:dict, start:str = "2024-01-01", end:str = "2025-04-13") -> Iterator[PricePoint]:
+    #tickers = { "IBM": "IBM", "S&P500":"^GSPC", "Dow30": "^DJI", "Gold": "GC=F", "CrudeOil": "CL=F"}
 
     for name, element in tickers.items():
         raw = yfinance.download(element, start=start, end=end, progress=False)
@@ -106,11 +106,6 @@ def multivariate_dataset(points: Iterable[PricePoint], target_col: str, windows_
     df_target = pd.DataFrame(y, columns=y_cols)
 
     return pd.concat([df_out, df_target], axis=1)
-
-
-
-
-
 
 def iter_log(points: Iterable[PricePoint]) -> Iterator[ReturnPoit]:
 
