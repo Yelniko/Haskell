@@ -1,13 +1,8 @@
-import xmlrpc.client
-from pyexpat import features
-
 import pandas as pd
 import yfinance
 from dataclasses import dataclass
 import numpy as np
 from typing import Iterator, Iterable
-import plotly.graph_objects as go
-from pandas.core.interchange.dataframe_protocol import DataFrame
 
 
 @dataclass(frozen=True)
@@ -140,11 +135,4 @@ def prices_to_dataframe(df: Iterator[PricePoint]) -> pd.DataFrame:
 
     df_pivot = df_is.pivot(index="Date", columns="Asset", values="LogReturn").sort_index()
     return df_pivot
-
-def figt(df:pd.DataFrame, name:str, name_y:str):
-    fignt = go.Figure()
-    for i in df.columns:
-        fignt.add_trace(go.Scatter(x=df.index, y=df[i], mode="lines", name=i))
-    fignt.update_layout(title=name, xaxis_title="Date", yaxis_title=name_y, height=500)
-    fignt.show()
 
