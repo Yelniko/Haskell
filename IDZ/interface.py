@@ -61,11 +61,11 @@ for i in sel:
 cols[1].title("Clear data")
 cols[1].line_chart(data.prices_to_dataframe(data.iter_market_data(tickers, start = start_time[0], end=start_time[1])))
 st.title("Normalization of data")
-st.line_chart(data.prices_to_dataframe(data.iter_norm(data.iter_norm(data.iter_market_data(tickers)))))
+st.line_chart(data.prices_to_dataframe(data.iter_norm(data.iter_norm(data.iter_market_data(tickers, start = start_time[0], end=start_time[1])))))
 st.title("Statistics")
-st.write(data.descriptive_statistics(data.prices_to_dataframe(data.iter_market_data(tickers))))
+st.write(data.descriptive_statistics(data.prices_to_dataframe(data.iter_market_data(tickers, start = start_time[0], end=start_time[1]))))
 st.title("Univariate")
-st.write(data.univariate_dataset(data.iter_market_data(tickers), 30))
+st.write(data.univariate_dataset(data.iter_market_data(tickers, start = start_time[0], end=start_time[1]), 30))
 
 st.title("Multivariate")
 
@@ -75,4 +75,4 @@ selt = st.selectbox(
 )
 
 if sel != "":
-    st.write(data.multivariate_dataset(data.iter_market_data(tickers), selt, 30, 1))
+    st.write(data.multivariate_dataset(data.iter_market_data(tickers, start = start_time[0], end=start_time[1]), selt, 30, 1))
