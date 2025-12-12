@@ -59,7 +59,7 @@ tickers = dict()
 for i in sel:
     tickers[i] = assets[i]
 cols[1].title("Clear data")
-cols[1].line_chart(data.prices_to_dataframe(data.iter_norm(data.iter_market_data(tickers, start = start_time[0], end=start_time[1]))))
+cols[1].line_chart(data.prices_to_dataframe(data.iter_market_data(tickers, start = start_time[0], end=start_time[1])))
 st.title("Normalization of data")
 st.line_chart(data.prices_to_dataframe(data.iter_norm(data.iter_norm(data.iter_market_data(tickers)))))
 st.title("Statistics")
